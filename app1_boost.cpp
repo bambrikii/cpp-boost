@@ -62,6 +62,8 @@ std::vector<std::vector<std::string>> read_csv(std::string file_name)
         }
         rows.push_back(row);
     }
+    file.close();
+    std::cout << "address of rows " << &rows << std::endl;
     return rows;
 }
 
@@ -77,6 +79,14 @@ void print_csv(const std::vector<std::vector<std::string>> rows)
     }
 }
 
+std::vector<std::vector<std::string>> read_and_print_csv()
+{
+    const auto csv = read_csv("file1.csv");
+    std::cout << "address of csv  " << &csv << std::endl;
+    print_csv(csv);
+    return csv;
+}
+
 int main(int argc, char **argv)
 {
     std::string str = "some-string1";
@@ -84,8 +94,7 @@ int main(int argc, char **argv)
     print_match(str);
     print_search(str);
     print_to_upper(str);
-    const auto &csv = read_csv("file1.csv");
-    print_csv(csv);
-
+    std::vector<std::vector<std::string>> csv = read_and_print_csv();
+    std::cout << "address of csv  " << &csv << std::endl;
     return 1;
 }

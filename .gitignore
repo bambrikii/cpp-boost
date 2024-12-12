@@ -5,3 +5,6 @@ cmake_install.cmake
 build
 app1
 app2
+app1_boost
+app2_boost
+app_NRVO
