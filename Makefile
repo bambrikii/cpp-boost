@@ -31,6 +31,9 @@ default_target: all
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
+# Produce verbose output by default.
+VERBOSE = 1
+
 # Command-line flag to silence nested $(MAKE).
 $(VERBOSE)MAKESILENT = -s
 
@@ -117,17 +120,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named app1
+# Target rules for targets named app1_boost
 
 # Build rule for target.
-app1: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app1
-.PHONY : app1
+app1_boost: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app1_boost
+.PHONY : app1_boost
 
 # fast build rule for target.
-app1/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/app1.dir/build.make CMakeFiles/app1.dir/build
-.PHONY : app1/fast
+app1_boost/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app1_boost.dir/build.make CMakeFiles/app1_boost.dir/build
+.PHONY : app1_boost/fast
 
 #=============================================================================
 # Target rules for targets named app2
@@ -142,12 +145,38 @@ app2/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/app2.dir/build.make CMakeFiles/app2.dir/build
 .PHONY : app2/fast
 
+#=============================================================================
+# Target rules for targets named app_NRVO
+
+# Build rule for target.
+app_NRVO: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app_NRVO
+.PHONY : app_NRVO
+
+# fast build rule for target.
+app_NRVO/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app_NRVO.dir/build.make CMakeFiles/app_NRVO.dir/build
+.PHONY : app_NRVO/fast
+
+#=============================================================================
+# Target rules for targets named app_containers
+
+# Build rule for target.
+app_containers: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app_containers
+.PHONY : app_containers
+
+# fast build rule for target.
+app_containers/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app_containers.dir/build.make CMakeFiles/app_containers.dir/build
+.PHONY : app_containers/fast
+
 app1_boost.o: app1_boost.cpp.o
 .PHONY : app1_boost.o
 
 # target to build an object file
 app1_boost.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/app1.dir/build.make CMakeFiles/app1.dir/app1_boost.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app1_boost.dir/build.make CMakeFiles/app1_boost.dir/app1_boost.cpp.o
 .PHONY : app1_boost.cpp.o
 
 app1_boost.i: app1_boost.cpp.i
@@ -155,7 +184,7 @@ app1_boost.i: app1_boost.cpp.i
 
 # target to preprocess a source file
 app1_boost.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/app1.dir/build.make CMakeFiles/app1.dir/app1_boost.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app1_boost.dir/build.make CMakeFiles/app1_boost.dir/app1_boost.cpp.i
 .PHONY : app1_boost.cpp.i
 
 app1_boost.s: app1_boost.cpp.s
@@ -163,7 +192,7 @@ app1_boost.s: app1_boost.cpp.s
 
 # target to generate assembly for a file
 app1_boost.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/app1.dir/build.make CMakeFiles/app1.dir/app1_boost.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app1_boost.dir/build.make CMakeFiles/app1_boost.dir/app1_boost.cpp.s
 .PHONY : app1_boost.cpp.s
 
 app2_boost.o: app2_boost.cpp.o
@@ -190,6 +219,54 @@ app2_boost.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/app2.dir/build.make CMakeFiles/app2.dir/app2_boost.cpp.s
 .PHONY : app2_boost.cpp.s
 
+app_NRVO.o: app_NRVO.cpp.o
+.PHONY : app_NRVO.o
+
+# target to build an object file
+app_NRVO.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app_NRVO.dir/build.make CMakeFiles/app_NRVO.dir/app_NRVO.cpp.o
+.PHONY : app_NRVO.cpp.o
+
+app_NRVO.i: app_NRVO.cpp.i
+.PHONY : app_NRVO.i
+
+# target to preprocess a source file
+app_NRVO.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app_NRVO.dir/build.make CMakeFiles/app_NRVO.dir/app_NRVO.cpp.i
+.PHONY : app_NRVO.cpp.i
+
+app_NRVO.s: app_NRVO.cpp.s
+.PHONY : app_NRVO.s
+
+# target to generate assembly for a file
+app_NRVO.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app_NRVO.dir/build.make CMakeFiles/app_NRVO.dir/app_NRVO.cpp.s
+.PHONY : app_NRVO.cpp.s
+
+app_containers.o: app_containers.cpp.o
+.PHONY : app_containers.o
+
+# target to build an object file
+app_containers.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app_containers.dir/build.make CMakeFiles/app_containers.dir/app_containers.cpp.o
+.PHONY : app_containers.cpp.o
+
+app_containers.i: app_containers.cpp.i
+.PHONY : app_containers.i
+
+# target to preprocess a source file
+app_containers.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app_containers.dir/build.make CMakeFiles/app_containers.dir/app_containers.cpp.i
+.PHONY : app_containers.cpp.i
+
+app_containers.s: app_containers.cpp.s
+.PHONY : app_containers.s
+
+# target to generate assembly for a file
+app_containers.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app_containers.dir/build.make CMakeFiles/app_containers.dir/app_containers.cpp.s
+.PHONY : app_containers.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -198,14 +275,22 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... app1"
+	@echo "... app1_boost"
 	@echo "... app2"
+	@echo "... app_NRVO"
+	@echo "... app_containers"
 	@echo "... app1_boost.o"
 	@echo "... app1_boost.i"
 	@echo "... app1_boost.s"
 	@echo "... app2_boost.o"
 	@echo "... app2_boost.i"
 	@echo "... app2_boost.s"
+	@echo "... app_NRVO.o"
+	@echo "... app_NRVO.i"
+	@echo "... app_NRVO.s"
+	@echo "... app_containers.o"
+	@echo "... app_containers.i"
+	@echo "... app_containers.s"
 .PHONY : help
 
 
