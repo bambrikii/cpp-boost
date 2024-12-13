@@ -25,6 +25,7 @@ public:
     {
         _name = std::move(other->_name);
         other = nullptr;
+        std::cout << " creating Cls1 " << _name << std::endl;
     }
     std::string &name()
     {
@@ -32,6 +33,7 @@ public:
     }
     ~Cls1()
     {
+        std::cout << " destroying Cls1 " << _name << std::endl;
     }
 };
 
