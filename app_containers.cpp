@@ -1,9 +1,39 @@
 #include <iostream>
 #include <string>
+#include <memory>
 #include <boost/container/flat_map.hpp>
 #include <boost/container/flat_set.hpp>
 #include <boost/container/slist.hpp>
 #include <boost/container/stable_vector.hpp>
+#include <boost/unordered_map.hpp>
+#include <boost/functional/hash.hpp>
+#include <boost/ptr_container/ptr_unordered_map.hpp>
+#include <boost/shared_ptr.hpp>
+#include <boost/make_shared.hpp>
+
+class Cls1
+{
+private:
+    std::string _name;
+
+public:
+    Cls1(std::string &&name)
+    {
+        _name = std::move(name);
+    }
+    Cls1(Cls1 *other)
+    {
+        _name = std::move(other->_name);
+        other = nullptr;
+    }
+    std::string &name()
+    {
+        return _name;
+    }
+    ~Cls1()
+    {
+    }
+};
 
 int main(int argc, char **argv)
 {
@@ -68,6 +98,38 @@ int main(int argc, char **argv)
     for (auto val : stable_vector1)
     {
         std::cout << "stable_vector1 " << val << "" << std::endl;
+    }
+
+    // ---
+    boost::unordered_multimap<std::string, std::string> multimap1;
+    multimap1.insert(std::make_pair("key1", "val1"));
+    for (auto kv : multimap1)
+    {
+        std::cout << "multimap1 " << kv.first << " - " << kv.second << "" << std::endl;
+    }
+    auto found_iterator = multimap1.find("key1");
+    if (found_iterator != multimap1.end())
+    {
+        std::cout << "multimap1 find by key " << &found_iterator << std::endl;
+        found_iterator++;
+    }
+
+    // ---
+    boost::ptr_unordered_map<std::string, boost::shared_ptr<Cls1>> ptr_unordered_map1;
+    ptr_unordered_map1["key1"] = boost::make_shared<Cls1>(new Cls1("str1"));
+    ptr_unordered_map1["key2"] = boost::make_shared<Cls1>(new Cls1("str2"));
+    ptr_unordered_map1["key3"] = boost::make_shared<Cls1>(new Cls1("str3"));
+    auto found_ptr_iterator = ptr_unordered_map1.find("key1");
+    if (found_ptr_iterator != ptr_unordered_map1.end())
+    {
+        auto val = *found_ptr_iterator;
+        std::cout
+            << "ptr_unordered_map1 find by key "
+            << &found_ptr_iterator << " "
+            << found_ptr_iterator->first << " - "
+            << val.second->get()->name() //
+            << std::endl;
+        found_ptr_iterator++;
     }
 
     return 0;
