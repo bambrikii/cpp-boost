@@ -79,7 +79,7 @@ public:
     MyIterator<T> end() { return MyIterator<T>(nullptr); }
 
     MyIterator<T> begin() const { return MyIterator<T>(_root); }
-    MyIterator<T> end() const { return MyIterator<T>(_root); }
+    MyIterator<T> end() const { return MyIterator<T>(nullptr); }
 
     void insert(T val)
     {
