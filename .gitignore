@@ -14,3 +14,4 @@ app_assign
 app_iterator
 app_my_iterator
 app_my_unordered_set
+app_bitmap_search
