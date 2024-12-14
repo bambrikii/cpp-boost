@@ -23,5 +23,14 @@ int main(int argc, char const *argv[])
 
     std::cout << " sz " << boost::size(list2) << std::endl;
 
+    // --
+    using namespace boost::assign;
+    std::vector<std::string> vector2;
+    vector2 += "val1", "val2", "val3";
+    for (auto i = vector2.begin(); i != vector2.end(); i++)
+    {
+        std::cout << " vector2 " << (*i) << std::endl;
+    }
+
     return 0;
 }
