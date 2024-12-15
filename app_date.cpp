@@ -1,5 +1,6 @@
 #include <boost/date_time.hpp>
 #include <boost/chrono.hpp>
+#include <boost/timer/timer.hpp>
 #include <iostream>
 
 int main(int argc, char const *argv[])
@@ -28,6 +29,12 @@ int main(int argc, char const *argv[])
 
     boost::chrono::seconds sec1(1);
     std::cout << "seconds - " << (sec1) << std::endl;
+
+    // -- timer
+
+    // boost::timer::cpu_timer timer1;
+    // timer1.stop();
+    // std::cout << " timer " << timer1.format() << std::endl;
 
     return 0;
 }
