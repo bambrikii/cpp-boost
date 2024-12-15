@@ -19,6 +19,9 @@ message(STATUS "boost_LIBS_DIR: ${boost_LIBS_DIR}")
 
 set(boost_COMPILE_OPTIONS
     -fdiagnostics-color=always
+    --save-temps
+    -dumpdir
+    build/
     -I${boost_LIBS_DIR}
     -D_FILE_OFFSET_BITS=64
     -pthread

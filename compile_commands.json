@@ -1,25 +1,25 @@
 [
 {
   "directory": "/home/asd/workspaceCPP/cpp-boost",
-  "command": "/usr/bin/clang++-14  -I/usr/include/boost -fdiagnostics-color=always -I/usr/lib/x86_64-linux-gnu/ -D_FILE_OFFSET_BITS=64 -pthread -L/usr/lib/x86_64-linux-gnu/ -Wl,-rpath,/usr/lib/x86_64-linux-gnu/ -o CMakeFiles/app1_boost.dir/app1_boost.cpp.o -c /home/asd/workspaceCPP/cpp-boost/app1_boost.cpp",
+  "command": "/usr/bin/clang++-14  -I/usr/include/boost -fdiagnostics-color=always --save-temps -dumpdir ii/ -I/usr/lib/x86_64-linux-gnu/ -D_FILE_OFFSET_BITS=64 -pthread -L/usr/lib/x86_64-linux-gnu/ -Wl,-rpath,/usr/lib/x86_64-linux-gnu/ -o CMakeFiles/app1_boost.dir/app1_boost.cpp.o -c /home/asd/workspaceCPP/cpp-boost/app1_boost.cpp",
   "file": "/home/asd/workspaceCPP/cpp-boost/app1_boost.cpp",
   "output": "CMakeFiles/app1_boost.dir/app1_boost.cpp.o"
 },
 {
   "directory": "/home/asd/workspaceCPP/cpp-boost",
-  "command": "/usr/bin/clang++-14  -I/usr/include/boost -fdiagnostics-color=always -I/usr/lib/x86_64-linux-gnu/ -D_FILE_OFFSET_BITS=64 -pthread -L/usr/lib/x86_64-linux-gnu/ -Wl,-rpath,/usr/lib/x86_64-linux-gnu/ -o CMakeFiles/app2.dir/app2_boost.cpp.o -c /home/asd/workspaceCPP/cpp-boost/app2_boost.cpp",
+  "command": "/usr/bin/clang++-14  -I/usr/include/boost -fdiagnostics-color=always --save-temps -dumpdir ii/ -I/usr/lib/x86_64-linux-gnu/ -D_FILE_OFFSET_BITS=64 -pthread -L/usr/lib/x86_64-linux-gnu/ -Wl,-rpath,/usr/lib/x86_64-linux-gnu/ -o CMakeFiles/app2.dir/app2_boost.cpp.o -c /home/asd/workspaceCPP/cpp-boost/app2_boost.cpp",
   "file": "/home/asd/workspaceCPP/cpp-boost/app2_boost.cpp",
   "output": "CMakeFiles/app2.dir/app2_boost.cpp.o"
 },
 {
   "directory": "/home/asd/workspaceCPP/cpp-boost",
-  "command": "/usr/bin/clang++-14  -I/usr/include/boost -fdiagnostics-color=always -I/usr/lib/x86_64-linux-gnu/ -D_FILE_OFFSET_BITS=64 -pthread -L/usr/lib/x86_64-linux-gnu/ -Wl,-rpath,/usr/lib/x86_64-linux-gnu/ -o CMakeFiles/app_NRVO.dir/app_NRVO.cpp.o -c /home/asd/workspaceCPP/cpp-boost/app_NRVO.cpp",
+  "command": "/usr/bin/clang++-14  -I/usr/include/boost -fdiagnostics-color=always --save-temps -dumpdir ii/ -I/usr/lib/x86_64-linux-gnu/ -D_FILE_OFFSET_BITS=64 -pthread -L/usr/lib/x86_64-linux-gnu/ -Wl,-rpath,/usr/lib/x86_64-linux-gnu/ -o CMakeFiles/app_NRVO.dir/app_NRVO.cpp.o -c /home/asd/workspaceCPP/cpp-boost/app_NRVO.cpp",
   "file": "/home/asd/workspaceCPP/cpp-boost/app_NRVO.cpp",
   "output": "CMakeFiles/app_NRVO.dir/app_NRVO.cpp.o"
 },
 {
   "directory": "/home/asd/workspaceCPP/cpp-boost",
-  "command": "/usr/bin/clang++-14  -I/usr/include/boost -fdiagnostics-color=always -I/usr/lib/x86_64-linux-gnu/ -D_FILE_OFFSET_BITS=64 -pthread -L/usr/lib/x86_64-linux-gnu/ -Wl,-rpath,/usr/lib/x86_64-linux-gnu/ -o CMakeFiles/app_containers.dir/app_containers.cpp.o -c /home/asd/workspaceCPP/cpp-boost/app_containers.cpp",
+  "command": "/usr/bin/clang++-14  -I/usr/include/boost -fdiagnostics-color=always --save-temps -dumpdir ii/ -I/usr/lib/x86_64-linux-gnu/ -D_FILE_OFFSET_BITS=64 -pthread -L/usr/lib/x86_64-linux-gnu/ -Wl,-rpath,/usr/lib/x86_64-linux-gnu/ -o CMakeFiles/app_containers.dir/app_containers.cpp.o -c /home/asd/workspaceCPP/cpp-boost/app_containers.cpp",
   "file": "/home/asd/workspaceCPP/cpp-boost/app_containers.cpp",
   "output": "CMakeFiles/app_containers.dir/app_containers.cpp.o"
 }
