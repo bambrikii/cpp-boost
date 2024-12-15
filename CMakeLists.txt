@@ -18,6 +18,11 @@ set(boost_LIBS_DIR /usr/lib/x86_64-linux-gnu/)
 message(STATUS "boost_LIBS_DIR: ${boost_LIBS_DIR}")
 
 set(boost_COMPILE_OPTIONS
+    -std=c++17
+    -lboost_program_options
+    -lboost_filesystem
+    -lboost_system
+    -lboost_timer
     -fdiagnostics-color=always
     --save-temps
     -dumpdir
