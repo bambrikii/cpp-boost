@@ -6,6 +6,7 @@
 #include <boost/multi_index/member.hpp>
 #include <boost/multi_index/ordered_index.hpp>
 #include <boost/multi_index/indexed_by.hpp>
+#include <boost/lambda/lambda.hpp>
 
 struct Cls1
 {
@@ -81,6 +82,46 @@ int main(int argc, char const *argv[])
     if (mi1iter3 != m1_prop3.end())
     {
         std::cout << " mi1 found by prop3 - " << mi1iter3->prop1 << " - " << mi1iter3->prop2 << " - " << mi1iter3->prop3 << std::endl;
+    }
+
+    // -- tags in lookups
+
+    struct tag1
+    {
+    };
+    struct tag2
+    {
+    };
+    struct tag3
+    {
+    };
+
+    boost::multi_index_container<                                                                                                               //
+        Cls1,                                                                                                                                   //
+        boost::multi_index::indexed_by<                                                                                                         //
+            boost::multi_index::ordered_non_unique<boost::multi_index::tag<tag1>, boost::multi_index::member<Cls1, std::string, &Cls1::prop1>>, //
+            boost::multi_index::ordered_non_unique<boost::multi_index::tag<tag2>, boost::multi_index::member<Cls1, std::string, &Cls1::prop2>>, //
+            boost::multi_index::ordered_non_unique<boost::multi_index::tag<tag3>, boost::multi_index::member<Cls1, std::string, &Cls1::prop3>>  //
+            >                                                                                                                                   //
+        >                                                                                                                                       //
+        mi2;
+    mi2.insert({"mi1", "1", "p3-1"});
+    mi2.insert({"mi2", "2", "p3-2"});
+
+    auto &tag1_search = mi2.get<tag1>();
+    auto mi2_tag1 = tag1_search.find("mi1");
+    if (mi2_tag1 != mi2.end())
+    {
+        std::cout << " mi1 found by tag prop1 - " << mi2_tag1->prop1 << " - " << mi2_tag1->prop2 << " - " << mi2_tag1->prop3 << std::endl;
+    }
+
+    // -- range lookups
+
+    auto &m1_name_index = mi1.get<0>();
+    auto m1_name_range = m1_name_index.range("mi1" <= boost::lambda::_1, "mi3" > boost::lambda::_1);
+    for (auto i = m1_name_range.first; i != m1_name_range.second; i++)
+    {
+        std::cout << " m1 range index " << i->prop1 << " - " << i->prop2 << " - " << i->prop3 << std::endl;
     }
 
     return 0;
