@@ -133,6 +133,19 @@ app1_boost/fast:
 .PHONY : app1_boost/fast
 
 #=============================================================================
+# Target rules for targets named clean_all
+
+# Build rule for target.
+clean_all: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean_all
+.PHONY : clean_all
+
+# fast build rule for target.
+clean_all/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/clean_all.dir/build.make CMakeFiles/clean_all.dir/build
+.PHONY : clean_all/fast
+
+#=============================================================================
 # Target rules for targets named app2
 
 # Build rule for target.
@@ -170,6 +183,19 @@ app_containers: cmake_check_build_system
 app_containers/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/app_containers.dir/build.make CMakeFiles/app_containers.dir/build
 .PHONY : app_containers/fast
+
+#=============================================================================
+# Target rules for targets named app_io
+
+# Build rule for target.
+app_io: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 app_io
+.PHONY : app_io
+
+# fast build rule for target.
+app_io/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app_io.dir/build.make CMakeFiles/app_io.dir/build
+.PHONY : app_io/fast
 
 app1_boost.o: app1_boost.cpp.o
 .PHONY : app1_boost.o
@@ -267,6 +293,30 @@ app_containers.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/app_containers.dir/build.make CMakeFiles/app_containers.dir/app_containers.cpp.s
 .PHONY : app_containers.cpp.s
 
+app_io.o: app_io.cpp.o
+.PHONY : app_io.o
+
+# target to build an object file
+app_io.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app_io.dir/build.make CMakeFiles/app_io.dir/app_io.cpp.o
+.PHONY : app_io.cpp.o
+
+app_io.i: app_io.cpp.i
+.PHONY : app_io.i
+
+# target to preprocess a source file
+app_io.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app_io.dir/build.make CMakeFiles/app_io.dir/app_io.cpp.i
+.PHONY : app_io.cpp.i
+
+app_io.s: app_io.cpp.s
+.PHONY : app_io.s
+
+# target to generate assembly for a file
+app_io.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/app_io.dir/build.make CMakeFiles/app_io.dir/app_io.cpp.s
+.PHONY : app_io.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -275,10 +325,12 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... clean_all"
 	@echo "... app1_boost"
 	@echo "... app2"
 	@echo "... app_NRVO"
 	@echo "... app_containers"
+	@echo "... app_io"
 	@echo "... app1_boost.o"
 	@echo "... app1_boost.i"
 	@echo "... app1_boost.s"
@@ -291,6 +343,9 @@ help:
 	@echo "... app_containers.o"
 	@echo "... app_containers.i"
 	@echo "... app_containers.s"
+	@echo "... app_io.o"
+	@echo "... app_io.i"
+	@echo "... app_io.s"
 .PHONY : help
 
 

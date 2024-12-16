@@ -19,14 +19,14 @@ message(STATUS "boost_LIBS_DIR: ${boost_LIBS_DIR}")
 
 set(boost_COMPILE_OPTIONS
     -std=c++17
+    -lboost_regex
     -lboost_program_options
     -lboost_filesystem
     -lboost_system
     -lboost_timer
     -fdiagnostics-color=always
     --save-temps
-    -dumpdir
-    build/
+    -dumpdir build
     -I${boost_LIBS_DIR}
     -D_FILE_OFFSET_BITS=64
     -pthread
@@ -43,21 +43,53 @@ add_executable(app1_boost app1_boost.cpp)
 target_include_directories(app1_boost PUBLIC ${boost_INCLUDE_DIRS})
 target_link_directories(app1_boost PUBLIC ${boost_LIBS_DIR})
 target_link_directories(app1_boost PUBLIC /usr/lib/x86_64-linux-gnu)
+set_target_properties(app1_boost PROPERTIES 
+    ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build
+    LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build
+)
+add_custom_target(clean_all ALL "rm *.bc *.o *.ii *.ss *.s")
 
 
 add_executable(app2 app2_boost.cpp)
 target_include_directories(app2 PUBLIC ${boost_INCLUDE_DIRS})
 target_link_directories(app2 PUBLIC ${boost_LIBS_DIR})
 target_link_directories(app2 PUBLIC /usr/lib/x86_64-linux-gnu)
+set_target_properties(app2 PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build
+    LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build
+)
 
 
 add_executable(app_NRVO app_NRVO.cpp)
 target_include_directories(app_NRVO PUBLIC ${boost_INCLUDE_DIRS})
 target_link_directories(app_NRVO PUBLIC ${boost_LIBS_DIR})
 target_link_directories(app_NRVO PUBLIC /usr/lib/x86_64-linux-gnu)
+set_target_properties(app_NRVO PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build
+    LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build
+)
 
 
 add_executable(app_containers app_containers.cpp)
 target_include_directories(app_containers PUBLIC ${boost_INCLUDE_DIRS})
 target_link_directories(app_containers PUBLIC ${boost_LIBS_DIR})
 target_link_directories(app_containers PUBLIC /usr/lib/x86_64-linux-gnu)
+set_target_properties(app_containers PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build
+    LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build
+)
+
+
+add_executable(app_io app_io.cpp)
+target_include_directories(app_io PUBLIC ${boost_INCLUDE_DIRS})
+target_link_directories(app_io PUBLIC ${boost_LIBS_DIR})
+target_link_directories(app_io PUBLIC /usr/lib/x86_64-linux-gnu)
+set_target_properties(app_io PROPERTIES
+    ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build
+    LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build
+    RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/build
+)
