@@ -1,0 +1,53 @@
+{
+  "configurations": [
+    {
+      "name": "C/C++: gcc-13 build and debug active file",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${fileDirname}/build/${fileBasenameNoExtension}",
+      "args": [
+        "-S",
+        "-lboost_regex",
+        "-lboost_iostreams",
+        "-lboost_program_options",
+        "-lboost_filesystem",
+        "-lboost_system",
+        "-lboost_timer",
+        "-lboost_thread",
+        "-lboost_date_time",
+        "-lboost_chrono",
+        "-lboost_container",
+        "-lboost_coroutine",
+        "-lboost_random",
+        "-lboost_serialization",
+        "-lboost_wserialization",
+        "-lboost_context"
+      ],
+      "stopAtEntry": false,
+      "cwd": "${fileDirname}",
+      "environment": [
+        {
+          "name": "Path",
+          "value": "${env:Path};${workspaceFolder}/vcpkg/installed/x64-linux/lib"
+        }
+      ],
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        },
+        {
+          "description": "Set Disassembly Flavor to Intel",
+          "text": "-gdb-set disassembly-flavor intel",
+          "ignoreFailures": true
+        }
+      ],
+      "preLaunchTask": "C/C++: gcc-13 build active file",
+      "miDebuggerPath": "/usr/bin/gdb"
+    }
+  ],
+  "version": "2.0.0"
+}

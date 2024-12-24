@@ -1,0 +1,40 @@
+{
+  "configurations": [
+    {
+      "name": "Linux",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "${workspaceFolder}/vcpkg/installed/x64-linux/include"
+      ],
+      "defines": [],
+      "compilerPath": "/usr/bin/gcc-13",
+      "compilerArgs": [
+        "-lboost_regex",
+        "-lboost_iostreams",
+        "-lboost_program_options",
+        "-lboost_filesystem",
+        "-lboost_system",
+        "-lboost_timer",
+        "-lboost_thread",
+        "-lboost_date_time",
+        "-lboost_chrono",
+        "-lboost_container",
+        "-lboost_coroutine",
+        "-lboost_random",
+        "-lboost_serialization",
+        "-lboost_wserialization",
+        "-lboost_context",
+        "-fdiagnostics-color=always",
+        "-I${workspaceFolder}/vcpkg/installed/x64-linux/include",
+        "-D_FILE_OFFSET_BITS=64",
+        "-pthread",
+        "-I${workspaceFolder}/vcpkg/installed/x64-linux/lib",
+        "-pthread",
+        "-Wl,-rpath,${workspaceFolder}/vcpkg/installed/x64-linux/lib"
+      ],
+      "cStandard": "gnu23",
+      "cppStandard": "gnu++23"
+    }
+  ],
+  "version": 4
+}
