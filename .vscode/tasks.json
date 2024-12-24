@@ -5,6 +5,7 @@
       "label": "C/C++: g++ build active file",
       "command": "/usr/bin/g++-13",
       "args": [
+        "-pthread",
         // "-DBOOST_NO_CXX11_SCOPED_ENUMS",
         // "–lboost_chrono",
         "-lboost_regex",
