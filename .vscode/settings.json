@@ -85,6 +85,7 @@
     "future": "cpp",
     "stdfloat": "cpp",
     "valarray": "cpp",
-    "*.ipp": "cpp"
+    "*.ipp": "cpp",
+    "ranges": "cpp"
   }
 }

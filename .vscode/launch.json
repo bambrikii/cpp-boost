@@ -18,6 +18,7 @@
         "-lboost_chrono",
         "-lboost_container",
         "-lboost_coroutine",
+        "-lboost_coroutine2",
         "-lboost_random",
         "-lboost_serialization",
         "-lboost_wserialization",

@@ -23,6 +23,7 @@
         "-lboost_serialization",
         "-lboost_wserialization",
         "-lboost_context",
+        "-lpthread",
         "-std=c++17",
         "-fdiagnostics-color=always",
         "--save-temps",
