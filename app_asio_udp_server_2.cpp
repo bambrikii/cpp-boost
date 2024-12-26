@@ -17,7 +17,7 @@ void udp_send_to(asio::yield_context ctx, shared_udp_socket socket, asio::ip::ud
     socket->async_send_to(asio::buffer(msg, std::strlen(msg)), peer, ctx);
 }
 
-void udp_server(asio::yield_context ctx, asio::io_service &service, unsigned short port)
+void udp_server(asio::yield_context ctx, asio::io_service &service, unsigned int port)
 {
     shared_udp_socket socket = boost::make_shared<asio::ip::udp::socket>(service, asio::ip::udp::endpoint(asio::ip::udp::v4(), port));
     char buffer[MAXBUF];

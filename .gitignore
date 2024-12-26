@@ -15,3 +15,8 @@ app_iterator
 app_my_iterator
 app_my_unordered_set
 app_bitmap_search
+compile_commands.json
+Makefile
+*.bc
+*.ii
+*.s

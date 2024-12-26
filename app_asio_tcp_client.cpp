@@ -22,6 +22,15 @@ int main(int argc, char **argv)
     std::string msg = "client";
     asio::write(socket, asio::buffer(msg.c_str(), msg.size()));
 
+    char msg2[BUFSIZ];
+    boost::system::error_code error_code;
+    size_t size = asio::read(socket, asio::buffer(msg2, BUFSIZ), error_code);
+
+    if (!error_code || asio::error::eof)
+    {
+        std::cerr << "error " << error_code << std::endl;
+    }
+
     socket.shutdown(asio::ip::tcp::socket::shutdown_send);
 
     return 0;
