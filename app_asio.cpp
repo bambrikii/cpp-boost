@@ -1,9 +1,25 @@
 #include <boost/asio/io_service.hpp>
 #include <boost/asio.hpp>
 #include <iostream>
+#include <string>
+
+struct struct1
+{
+    int prop1;
+    int prop2;
+    std::string str1;
+};
+
+struct struct2
+{
+    int prop3;
+    struct1 prop4;
+};
 
 int main(int args, char **argv)
 {
+    struct2 str2 = {1, 2, 3, "q"};
+    std::cout << "str" << str2.prop4.str1 << std::endl;
     // io service
     boost::asio::io_service svc;
     svc.dispatch([]()
